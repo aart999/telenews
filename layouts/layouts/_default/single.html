@@ -1,0 +1,24 @@
+<button onclick="saveNews('{{ .Title }}', '{{ .Params.url }}')">
+    ❤️ Save to Telegram
+  </button>
+  
+  <script>
+    function saveNews(title, url) {
+      fetch('http://localhost:5000/save', {  // Replace with your actual API URL when deployed
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title, url })
+      }).then(response => response.json())
+        .then(data => {
+          if (data.ok) {
+              alert('✅ News saved! Check your Telegram bot.');
+          } else {
+              alert('❌ Error saving news.');
+          }
+        })
+        .catch(error => {
+          alert('⚠️ Failed to send. Server might be down.');
+        });
+    }
+  </script>
+  

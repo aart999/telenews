@@ -1,0 +1,4 @@
+baseURL = 'https://tgNewsHub.org/'
+languageCode = 'en-us'
+title = 'tgNewsHub'
+theme = 'hugo-theme-terminal'
